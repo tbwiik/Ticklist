@@ -22,12 +22,15 @@ struct AddTickButtonView: View {
         VStack {
             Button(action: {action()}){
                 ZStack {
-                    Image(systemName: "circle.fill")
-                        .foregroundColor(isEnabled ? .green : .gray)
-                        .font(.system(size: 40))
+                    Rectangle()
+                        .fill(isEnabled ? .green : .gray)
+                        .clipShape(.buttonBorder)
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 64)
+                        .padding()
                     Image(systemName: iconSystemName)
                         .foregroundStyle(.white)
-                        .font(.system(size: 22))
+                        .font(.system(size: 32))
                         .bold()
                 }
             }
