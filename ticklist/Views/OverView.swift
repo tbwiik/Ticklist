@@ -27,7 +27,7 @@ struct OverView: View {
                             NavigationLink{
                                 Text ("Placeholder") //TODO: update
                             } label: {
-                                TickCardView()
+                                TickCardView(tick)
                             }
                         }
                         .onDelete(perform: deleteTick)
@@ -47,8 +47,7 @@ struct OverView: View {
     
     private func addTick() -> Void {
         withAnimation{
-            let newTick = Tick(climbName: "foo", cragName: "bar", dateClimbed: .now, grade: "ba", comment: "baba")
-            modelContext.insert(newTick)
+            modelContext.insert(Tick.mock)
         }
     }
 

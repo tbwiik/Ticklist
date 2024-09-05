@@ -8,12 +8,23 @@
 import SwiftUI
 
 struct TickCardView: View {
+    
+    private let tickImage = "mountain.2"
+    
+    let tick: Tick
+    
+    init(_ tick: Tick) {
+        self.tick = tick
+    }
+    
     var body: some View {
         HStack{
-            Label("Tick", systemImage: "checkmark.circle")
+            Label(tick.grade, systemImage: tickImage)
+                .font(.title2) // TODO: update
             VStack (alignment: .leading) {
-                Text("This is a test card")
-                Text("This is a test card")
+                Text(tick.climbName)
+                    .font(.headline) // TODO: update
+                Text(tick.cragName)
             }
             .padding()
             
@@ -22,5 +33,5 @@ struct TickCardView: View {
 }
 
 #Preview {
-    TickCardView()
+    TickCardView(Tick.mock)
 }
