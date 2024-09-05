@@ -15,7 +15,7 @@ struct OverView: View {
     
     private let searchbarPrompt = "Silence"
     
-    @State var text: String
+    @State var text = ""
     
     var body: some View {
         
@@ -61,6 +61,6 @@ struct OverView: View {
 }
 
 #Preview {
-    OverView(text: "")
+    OverView()
         .modelContainer(for: Tick.self, inMemory: true)
 }
