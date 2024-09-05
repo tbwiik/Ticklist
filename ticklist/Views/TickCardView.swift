@@ -33,5 +33,5 @@ struct TickCardView: View {
 }
 
 #Preview {
-    TickCardView(Tick.mock)
+    TickCardView(Tick.mockSilence)
 }

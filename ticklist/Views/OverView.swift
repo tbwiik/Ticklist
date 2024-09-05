@@ -47,7 +47,7 @@ struct OverView: View {
     
     private func addTick() -> Void {
         withAnimation{
-            modelContext.insert(Tick.mock)
+            modelContext.insert(Tick.mockSilence)
         }
     }
 
