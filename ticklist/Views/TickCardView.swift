@@ -9,7 +9,15 @@ import SwiftUI
 
 struct TickCardView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack{
+            Label("Tick", systemImage: "checkmark.circle")
+            VStack (alignment: .leading) {
+                Text("This is a test card")
+                Text("This is a test card")
+            }
+            .padding()
+            
+        }
     }
 }
 

@@ -11,8 +11,21 @@ struct OverView: View {
     var body: some View {
         
         ZStack {
-            Rectangle()
-                .fill(Color.black)
+            VStack{
+                HStack{
+                    Spacer()
+                    Button(action: {}) {
+                        Image(systemName: "magnifyingglass.circle")
+                    }
+                    .padding(.trailing)
+                    .font(.title)
+                }
+                List {
+                    ForEach(0..<10) { _ in
+                        TickCardView()
+                    }
+                }
+            }
             VStack {
                 Spacer()
                 AddTickButtonView(action: {})
