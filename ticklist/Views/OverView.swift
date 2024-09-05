@@ -11,8 +11,12 @@ struct OverView: View {
     var body: some View {
         
         ZStack {
+            Rectangle()
+                .fill(Color.black)
             VStack {
+                Spacer()
                 AddTickButtonView(action: {})
+                    .background(Color.white)
             }
         }
     }
