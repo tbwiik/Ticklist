@@ -9,6 +9,8 @@ import SwiftUI
 
 struct OverView: View {
     
+    private let searchbarPrompt = "Silence"
+    
     @State var text: String
     
     var body: some View {
@@ -21,7 +23,7 @@ struct OverView: View {
                             TickCardView()
                         }
                     }
-                    .searchable(text: $text)
+                    .searchable(text: $text, prompt: searchbarPrompt)
                 }
                 VStack {
                     Spacer()
@@ -35,5 +37,5 @@ struct OverView: View {
 }
 
 #Preview {
-    OverView(text: "Silence")
+    OverView(text: "")
 }
