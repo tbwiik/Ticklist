@@ -8,33 +8,32 @@
 import SwiftUI
 
 struct OverView: View {
+    
+    @State var text: String
+    
     var body: some View {
         
-        ZStack {
-            VStack{
-                HStack{
+        NavigationStack {
+            ZStack {
+                VStack{
+                    List {
+                        ForEach(0..<10) { _ in
+                            TickCardView()
+                        }
+                    }
+                    .searchable(text: $text)
+                }
+                VStack {
                     Spacer()
-                    Button(action: {}) {
-                        Image(systemName: "magnifyingglass.circle")
-                    }
-                    .padding(.trailing)
-                    .font(.title)
+                    AddTickButtonView(action: {})
+                        .background(Color.white)
                 }
-                List {
-                    ForEach(0..<10) { _ in
-                        TickCardView()
-                    }
-                }
-            }
-            VStack {
-                Spacer()
-                AddTickButtonView(action: {})
-                    .background(Color.white)
             }
         }
+        .navigationTitle("Ticklist")
     }
 }
 
 #Preview {
-    OverView()
+    OverView(text: "Silence")
 }
