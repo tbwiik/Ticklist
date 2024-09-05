@@ -12,7 +12,7 @@ import SwiftData
 struct ticklistApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            Item.self,
+            Tick.self,
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
@@ -25,7 +25,7 @@ struct ticklistApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            OverView()
         }
         .modelContainer(sharedModelContainer)
     }
