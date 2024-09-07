@@ -8,7 +8,10 @@
 import Foundation
 
 /// Enum for YDS (American) Climbing Grades
-enum YDSClimbingGrades: String, CaseIterable {
+enum YDSClimbingGrades: String, CaseIterable, Identifiable {
+    
+    var id: Self { self }
+    
     case grade5_0 = "5.0"
     case grade5_1 = "5.1"
     case grade5_2 = "5.2"

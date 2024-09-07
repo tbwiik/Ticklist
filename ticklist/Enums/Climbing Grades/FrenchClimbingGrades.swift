@@ -8,7 +8,10 @@
 import Foundation
 
 /// Enum for French Climbing Climbing Grades
-enum FrenchClimbingGrades: String, CaseIterable {
+enum FrenchClimbingGrades: String, CaseIterable, Identifiable {
+    
+    var id: Self { self }
+    
     case grade1 = "1"
     case grade2 = "2"
     case grade3 = "3"

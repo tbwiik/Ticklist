@@ -8,7 +8,10 @@
 import Foundation
 
 /// Enum for UIAA Climbing Grades
-enum UIAAClimbingGrades: String, CaseIterable {
+enum UIAAClimbingGrades: String, CaseIterable, Identifiable {
+    
+    var id: Self { self }
+    
     case gradeI = "I"
     case gradeII = "II"
     case gradeIII = "III"
