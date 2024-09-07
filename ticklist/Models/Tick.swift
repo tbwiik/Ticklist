@@ -11,7 +11,7 @@ import SwiftData
 @Model
 class Tick: Identifiable {
     
-    var id: UUID
+    var id = UUID()
     var climbName: String
     var cragName: String
     var timeOfClimb: Date
@@ -20,7 +20,6 @@ class Tick: Identifiable {
     
     
     init (climbName: String, cragName: String, timeOfClimb: Date, grade: FrenchClimbingGrades, comment: String) {
-        self.id = UUID()
         self.climbName = climbName
         self.cragName = cragName
         self.timeOfClimb = timeOfClimb
@@ -29,11 +28,14 @@ class Tick: Identifiable {
     }
     
     init() {
-        self.id = UUID()
         self.climbName = ""
         self.cragName = ""
         self.timeOfClimb = Date.now
         self.grade = .defaultValue
         self.comment = ""
+    }
+    
+    var gradeString: String {
+        grade.rawValue
     }
 }
