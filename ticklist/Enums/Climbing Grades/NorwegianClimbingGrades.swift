@@ -8,7 +8,7 @@
 import Foundation
 
 /// Enum for Norwegian Climbing Grades
-enum NorwegianClimbingGrades: String, CaseIterable, Identifiable {
+enum NorwegianClimbingGrades: String, CaseIterable, Identifiable, Codable {
     
     var id: Self { self }
     

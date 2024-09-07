@@ -19,7 +19,8 @@ struct TickCardView: View {
     
     var body: some View {
         HStack{
-            Label(tick.grade, systemImage: tickImage)
+            // WARNING: possible point of crash when retrieving grade
+            Label(tick.grade.rawValue, systemImage: tickImage)
                 .font(.title2) // TODO: update
             VStack (alignment: .leading) {
                 Text(tick.climbName)

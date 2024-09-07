@@ -8,7 +8,7 @@
 import Foundation
 
 /// Enum for YDS (American) Climbing Grades
-enum YDSClimbingGrades: String, CaseIterable, Identifiable {
+enum YDSClimbingGrades: String, CaseIterable, Identifiable, Codable {
     
     var id: Self { self }
     
