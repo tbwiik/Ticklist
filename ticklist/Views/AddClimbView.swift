@@ -12,24 +12,26 @@ struct AddClimbView: View {
     @State var climbName: String = ""
     @State var cragName: String = ""
     @State var timeOfClimb: Date = Date.now
-    @State var grade: String = ""
+    @State var grade: FrenchClimbingGrades = .grade6a
     @State var climbDescription: String = ""
     
     var body: some View {
         
-        VStack {
+        List {
             TextField("Climb Name", text: $climbName)
                 .textFieldStyle(.roundedBorder)
             TextField("Crag Name", text: $cragName)
                 .textFieldStyle(.roundedBorder)
             DatePicker("Time of Climb", selection: $timeOfClimb)
                 .datePickerStyle(.compact)
-            TextField("Grade of Climb", text: $grade)
-                .textFieldStyle(.roundedBorder)
+            Picker("Grade of Climb", selection: $grade) {
+                ForEach(FrenchClimbingGrades.allCases) { grade in
+                    Text(grade.rawValue).tag(grade)
+                }
+            }
             TextField("Climb Description", text: $climbDescription)
                 .textFieldStyle(.roundedBorder)
         }
-        .padding()
         
     }
 }
