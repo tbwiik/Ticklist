@@ -44,7 +44,7 @@ struct OverView: View {
             }
         }
         .navigationTitle("Ticklist")
-        .sheet(isPresented: $isAddingClimb) {
+        .sheet(isPresented: $isAddingClimb, onDismiss: resetTick) {
             AddClimbView(tick: $tick, onButtonTap: createTick)
                 .presentationDragIndicator(.visible)
         }
@@ -62,6 +62,10 @@ struct OverView: View {
                 modelContext.delete(ticks[index])
             }
         }
+    }
+    
+    private func resetTick() {
+        tick = Tick()
     }
 }
 

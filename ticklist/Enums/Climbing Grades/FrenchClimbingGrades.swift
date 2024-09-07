@@ -13,6 +13,7 @@ enum FrenchClimbingGrades: String, CaseIterable, Identifiable, Codable {
     var id: Self { self }
     static var defaultValue: Self { .notGiven }
     
+    case notGiven = ""
     case grade1 = "1"
     case grade2 = "2"
     case grade3 = "3"
@@ -47,6 +48,4 @@ enum FrenchClimbingGrades: String, CaseIterable, Identifiable, Codable {
     case grade9b = "9b"
     case grade9bPlus = "9b+"
     case grade9c = "9c"
-    
-    case notGiven = "*"
 }
