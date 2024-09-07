@@ -15,6 +15,8 @@ struct AddClimbView: View {
     @State var grade: FrenchClimbingGrades = .grade6a
     @State var climbDescription: String = ""
     
+    let onButtonTap: () -> Void
+    
     var body: some View {
         
         List {
@@ -32,10 +34,11 @@ struct AddClimbView: View {
             TextField("Climb Description", text: $climbDescription)
                 .textFieldStyle(.roundedBorder)
         }
+        AddTickButtonView(action: onButtonTap, iconSystemName: "checkmark")
         
     }
 }
 
 #Preview {
-    AddClimbView()
+    AddClimbView(onButtonTap: {})
 }

@@ -44,9 +44,14 @@ struct OverView: View {
         }
         .navigationTitle("Ticklist")
         .sheet(isPresented: $isAddingClimb) {
-            AddClimbView()
+            AddClimbView(onButtonTap: createTick)
                 .presentationDragIndicator(.visible)
         }
+    }
+    
+    private func createTick() {
+        isAddingClimb = false
+        // TODO:
     }
 
     private func deleteTick(offsets: IndexSet) -> Void {
