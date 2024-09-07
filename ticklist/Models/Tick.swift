@@ -11,6 +11,7 @@ import SwiftData
 @Model
 class Tick: Identifiable {
     
+    // MARK: - Variables
     var id = UUID()
     var climbName: String
     var cragName: String
@@ -18,7 +19,7 @@ class Tick: Identifiable {
     var grade: FrenchClimbingGrades
     var comment: String
     
-    
+    // MARK: - Initializers
     init (climbName: String, cragName: String, timeOfClimb: Date, grade: FrenchClimbingGrades, comment: String) {
         self.climbName = climbName
         self.cragName = cragName
@@ -35,7 +36,13 @@ class Tick: Identifiable {
         self.comment = ""
     }
     
+    // MARK: - Computed Properties
     var gradeString: String {
         grade.rawValue
+    }
+    
+    // MARK: - Functions
+    var isComplete: Bool {
+        !climbName.isEmpty && !cragName.isEmpty
     }
 }
