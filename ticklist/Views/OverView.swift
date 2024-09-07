@@ -15,6 +15,7 @@ struct OverView: View {
     
     private let searchbarPrompt = "Silence"
     
+    @State private var isAddingClimb = false
     @State var text = ""
     
     var body: some View {
@@ -36,18 +37,15 @@ struct OverView: View {
                 }
                 VStack {
                     Spacer()
-                    AddTickButtonView(action: addTick)
+                    AddTickButtonView(action: { isAddingClimb = true})
                         .background(Color.white)
                 }
             }
         }
         .navigationTitle("Ticklist")
-    }
-    
-    
-    private func addTick() -> Void {
-        withAnimation{
-            modelContext.insert(Tick.mockSilence)
+        .sheet(isPresented: $isAddingClimb) {
+            AddClimbView()
+                .presentationDragIndicator(.visible)
         }
     }
 
