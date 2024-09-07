@@ -17,6 +17,7 @@ struct OverView: View {
     
     @State private var isAddingClimb = false
     @State var text = ""
+    @State var tick = Tick()
     
     var body: some View {
         
@@ -44,14 +45,15 @@ struct OverView: View {
         }
         .navigationTitle("Ticklist")
         .sheet(isPresented: $isAddingClimb) {
-            AddClimbView(onButtonTap: createTick)
+            AddClimbView(tick: $tick, onButtonTap: createTick)
                 .presentationDragIndicator(.visible)
         }
     }
     
     private func createTick() {
         isAddingClimb = false
-        // TODO:
+        modelContext.insert(tick)
+        tick = Tick()
     }
 
     private func deleteTick(offsets: IndexSet) -> Void {

@@ -15,23 +15,25 @@ struct AddClimbView: View {
     @State var grade: FrenchClimbingGrades = .grade6a
     @State var climbDescription: String = ""
     
+    @Binding var tick: Tick
+    
     let onButtonTap: () -> Void
     
     var body: some View {
         
         List {
-            TextField("Climb Name", text: $climbName)
+            TextField("Climb Name", text: $tick.climbName)
                 .textFieldStyle(.roundedBorder)
-            TextField("Crag Name", text: $cragName)
+            TextField("Crag Name", text: $tick.cragName)
                 .textFieldStyle(.roundedBorder)
-            DatePicker("Time of Climb", selection: $timeOfClimb)
+            DatePicker("Time of Climb", selection: $tick.timeOfClimb)
                 .datePickerStyle(.compact)
-            Picker("Grade of Climb", selection: $grade) {
+            Picker("Grade of Climb", selection: $tick.grade) {
                 ForEach(FrenchClimbingGrades.allCases) { grade in
                     Text(grade.rawValue).tag(grade)
                 }
             }
-            TextField("Climb Description", text: $climbDescription)
+            TextField("Climb Description", text: $tick.comment)
                 .textFieldStyle(.roundedBorder)
         }
         AddTickButtonView(action: onButtonTap, iconSystemName: "checkmark")
@@ -40,5 +42,5 @@ struct AddClimbView: View {
 }
 
 #Preview {
-    AddClimbView(onButtonTap: {})
+    AddClimbView(tick: .constant(Tick()), onButtonTap: {})
 }
