@@ -15,7 +15,7 @@ struct AddClimbView: View {
     
     var body: some View {
         
-        List {
+        VStack {
             TextField("Climb Name", text: $tick.climbName)
                 .textFieldStyle(.roundedBorder)
             TextField("Crag Name", text: $tick.cragName)
@@ -30,6 +30,9 @@ struct AddClimbView: View {
             TextField("Climb Description", text: $tick.comment)
                 .textFieldStyle(.roundedBorder)
         }
+        .padding()
+        .navigationBarTitle("Add Climb")
+        Spacer()
         AddTickButtonView(action: onButtonTap, iconSystemName: "checkmark")
             .disabled(!tick.isComplete)
         

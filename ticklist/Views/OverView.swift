@@ -47,6 +47,8 @@ struct OverView: View {
         .sheet(isPresented: $isAddingClimb, onDismiss: resetTick) {
             AddClimbView(tick: $tick, onButtonTap: createTick)
                 .presentationDragIndicator(.visible)
+                .presentationDetents(.init([.medium, .large]))
+                .presentationContentInteraction(.resizes)
         }
     }
     
