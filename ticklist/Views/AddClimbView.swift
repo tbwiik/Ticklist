@@ -31,6 +31,7 @@ struct AddClimbView: View {
                 .textFieldStyle(.roundedBorder)
         }
         AddTickButtonView(action: onButtonTap, iconSystemName: "checkmark")
+            .disabled(!tick.isComplete)
         
     }
 }
