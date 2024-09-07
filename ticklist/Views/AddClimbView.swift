@@ -9,12 +9,6 @@ import SwiftUI
 
 struct AddClimbView: View {
     
-    @State var climbName: String = ""
-    @State var cragName: String = ""
-    @State var timeOfClimb: Date = Date.now
-    @State var grade: FrenchClimbingGrades = .grade6a
-    @State var climbDescription: String = ""
-    
     @Binding var tick: Tick
     
     let onButtonTap: () -> Void

@@ -15,11 +15,11 @@ class Tick: Identifiable {
     var climbName: String
     var cragName: String
     var timeOfClimb: Date
-    var grade: String // TODO: update
+    var grade: FrenchClimbingGrades
     var comment: String
     
     
-    init (climbName: String, cragName: String, timeOfClimb: Date, grade: String, comment: String) {
+    init (climbName: String, cragName: String, timeOfClimb: Date, grade: FrenchClimbingGrades, comment: String) {
         self.id = UUID()
         self.climbName = climbName
         self.cragName = cragName
@@ -33,7 +33,7 @@ class Tick: Identifiable {
         self.climbName = ""
         self.cragName = ""
         self.timeOfClimb = Date.now
-        self.grade = ""
+        self.grade = .defaultValue
         self.comment = ""
     }
 }

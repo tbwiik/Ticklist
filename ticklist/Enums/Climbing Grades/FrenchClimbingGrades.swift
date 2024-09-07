@@ -47,3 +47,7 @@ enum FrenchClimbingGrades: String, CaseIterable, Identifiable {
     case grade9bPlus = "9b+"
     case grade9c = "9c"
 }
+
+extension FrenchClimbingGrades {
+    static let defaultValue: Self = .grade6a
+}
