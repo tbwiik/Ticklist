@@ -22,11 +22,7 @@ struct AddClimbView: View {
                 .textFieldStyle(.roundedBorder)
             DatePicker("Time of Climb", selection: $tick.timeOfClimb)
                 .datePickerStyle(.compact)
-            Picker("Grade of Climb", selection: $tick.grade) {
-                ForEach(FrenchClimbingGrades.allCases) { grade in
-                    Text(grade.rawValue).tag(grade)
-                }
-            }
+            GradePickerView(grade: $tick.grade)
             TextField("Climb Description", text: $tick.comment)
                 .textFieldStyle(.roundedBorder)
         }

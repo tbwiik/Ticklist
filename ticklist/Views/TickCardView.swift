@@ -19,7 +19,7 @@ struct TickCardView: View {
     
     var body: some View {
         HStack{
-            Label(tick.gradeString, systemImage: tickImage)
+            Label(tick.grade.string, systemImage: tickImage)
                 .font(.title2) // TODO: update
             VStack (alignment: .leading) {
                 Text(tick.climbName)

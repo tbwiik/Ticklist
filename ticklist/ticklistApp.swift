@@ -13,6 +13,7 @@ struct ticklistApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Tick.self,
+            Grade.self,
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
