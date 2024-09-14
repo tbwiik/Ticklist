@@ -9,9 +9,7 @@ import Foundation
 
 /// Enum for Norwegian Climbing Grades
 enum NorwegianClimbingGrades: String, GradingSystem{
-    
     var id: Self { self }
-    var string: String { self.rawValue }
     static var defaultValue: Self { .grade6 }
     
     case grade3 = "3"
