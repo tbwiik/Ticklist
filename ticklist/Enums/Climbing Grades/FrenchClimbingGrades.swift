@@ -8,12 +8,11 @@
 import Foundation
 
 /// Enum for French Climbing Climbing Grades
-enum FrenchClimbingGrades: String, CaseIterable, Identifiable, Codable {
-    
+enum FrenchClimbingGrades: String, GradingSystem {
     var id: Self { self }
-    static var defaultValue: Self { .notGiven }
+    var string: String { self.rawValue }
+    static var defaultValue: Self { .grade6a }
     
-    case notGiven = ""
     case grade1 = "1"
     case grade2 = "2"
     case grade3 = "3"
@@ -48,4 +47,11 @@ enum FrenchClimbingGrades: String, CaseIterable, Identifiable, Codable {
     case grade9b = "9b"
     case grade9bPlus = "9b+"
     case grade9c = "9c"
+}
+
+extension FrenchClimbingGrades{
+    // For Protocol conformance
+    func toFrench() -> FrenchClimbingGrades? {
+        return self
+    }
 }
