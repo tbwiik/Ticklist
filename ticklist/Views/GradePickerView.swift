@@ -25,6 +25,7 @@ struct GradePickerView: View {
             .tint(.black)
             .cornerRadius(8)
             .padding(8)
+            .labelsHidden()
         }
     }
 }

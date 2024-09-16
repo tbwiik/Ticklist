@@ -15,19 +15,16 @@ struct AddClimbView: View {
     
     var body: some View {
         
-        VStack {
+        List {
             TextField("Climb Name", text: $tick.climbName)
-                .textFieldStyle(.roundedBorder)
             TextField("Crag Name", text: $tick.cragName)
-                .textFieldStyle(.roundedBorder)
             DatePicker("Time of Climb", selection: $tick.timeOfClimb)
                 .datePickerStyle(.compact)
             GradePickerView(grade: $tick.grade)
             TextField("Climb Description", text: $tick.comment)
-                .textFieldStyle(.roundedBorder)
         }
+        .listStyle(.inset)
         .padding()
-        .navigationBarTitle("Add Climb")
         Spacer()
         AddTickButtonView(action: onButtonTap, iconSystemName: "checkmark")
             .disabled(!tick.isComplete)
@@ -36,5 +33,10 @@ struct AddClimbView: View {
 }
 
 #Preview {
-    AddClimbView(tick: .constant(Tick()), onButtonTap: {})
+    Text("")
+        .sheet(isPresented: .constant(true)){
+            AddClimbView(tick: .constant(Tick()), onButtonTap: {})
+                .presentationDragIndicator(.visible)
+                .presentationDetents(.init([.medium]))
+        }
 }
