@@ -13,21 +13,14 @@ struct DetailView: View {
     
     var body: some View {
         Form {
-            
-            HStack {
-                Text("Name")
-                Spacer()
-                Text(tick.climbName)
+            Section(header: Text("Climb Details")) {
+                DetailItemHStack(description: "Name", content: tick.climbName)
+                DetailItemHStack(description: "Crag", content: tick.cragName)
+                DetailItemHStack(description: "Grade", content: tick.grade.string)
+                DetailItemHStack(description: "Date", content: tick.timeOfClimb.formatDate())
             }
-            HStack {
-                Text("Crag")
-                Spacer()
-                Text(tick.cragName)
-            }
-            HStack {
-                Text("Grade")
-                Spacer()
-                Text(tick.grade.string)
+            Section(header: Text("Additional info")) {
+                DetailItemHStack(description: "Comment", content: tick.comment)
             }
         }
     }
