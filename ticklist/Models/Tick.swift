@@ -41,3 +41,10 @@ class Tick: Identifiable {
         !climbName.isEmpty && !cragName.isEmpty
     }
 }
+
+///Date formatting
+extension Date{
+    func formatDate() -> String {
+        return DateFormatter.localizedString(from: self, dateStyle: .medium, timeStyle: .none)
+    }
+}
