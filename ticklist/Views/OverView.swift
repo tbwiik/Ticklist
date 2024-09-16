@@ -17,7 +17,7 @@ struct OverView: View {
     
     @State private var isAddingClimb = false
     @State var text = ""
-    @State var tick = Tick()
+    @State var newTick = Tick()
     
     var body: some View {
         
@@ -27,7 +27,7 @@ struct OverView: View {
                     List {
                         ForEach(ticks) { tick in
                             NavigationLink{
-                                DetailView(tick: $tick)
+                                DetailView(tick: tick)
                             } label: {
                                 TickCardView(tick)
                             }
@@ -45,7 +45,7 @@ struct OverView: View {
         }
         .navigationTitle("Ticklist")
         .sheet(isPresented: $isAddingClimb, onDismiss: resetTick) {
-            AddClimbView(tick: $tick, onButtonTap: createTick)
+            AddClimbView(tick: $newTick, onButtonTap: createTick)
                 .presentationDragIndicator(.visible)
                 .presentationDetents(.init([.medium, .large]))
                 .presentationContentInteraction(.resizes)
@@ -54,8 +54,8 @@ struct OverView: View {
     
     private func createTick() {
         isAddingClimb = false
-        modelContext.insert(tick)
-        tick = Tick()
+        modelContext.insert(newTick)
+        resetTick()
     }
 
     private func deleteTick(offsets: IndexSet) -> Void {
@@ -67,7 +67,7 @@ struct OverView: View {
     }
     
     private func resetTick() {
-        tick = Tick()
+        newTick = Tick()
     }
 }
 

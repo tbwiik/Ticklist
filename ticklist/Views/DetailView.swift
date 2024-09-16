@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DetailView: View {
     
-    @Binding var tick: Tick
+    @Bindable var tick: Tick
     
     var body: some View {
         Form {
@@ -28,5 +28,5 @@ struct DetailView: View {
 
 #Preview {
     @Previewable @State var mock = Tick(climbName: "Silence", cragName: "Hanshelleren", timeOfClimb: .now, grade: Grade(FrenchClimbingGrades.grade9c), comment: "Hardest climb ever")
-    DetailView(tick: $mock)
+    DetailView(tick: mock)
 }
