@@ -20,7 +20,7 @@ struct AddTickButtonView: View {
     
     var body: some View {
         VStack {
-            Button(action: {action()}){
+            Button(action: action){
                 ZStack {
                     Rectangle()
                         .fill(isEnabled ? .green : .gray)
