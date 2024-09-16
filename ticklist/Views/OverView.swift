@@ -27,7 +27,7 @@ struct OverView: View {
                     List {
                         ForEach(ticks) { tick in
                             NavigationLink{
-                                Text ("Placeholder") //TODO: update
+                                DetailView(tick: $tick)
                             } label: {
                                 TickCardView(tick)
                             }
