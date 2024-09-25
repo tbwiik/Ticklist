@@ -10,29 +10,33 @@ import SwiftUI
 struct DetailView: View {
     
     @Bindable var tick: Tick
-    var isDisabled: Bool = true
     
     var body: some View {
         Form {
             Section(header: Text("Climb Details")) {
-                DetailItemHStack(description: "Name", disableContent: isDisabled) {
+                DetailItemHStack(description: "Name") {
                     TextField("", text: $tick.climbName)
                 }
-                DetailItemHStack(description: "Crag", disableContent: isDisabled){
+                DetailItemHStack(description: "Crag"){
                     TextField("", text: $tick.cragName)
                 }
-                DetailItemHStack(description: "Grade", disableContent: isDisabled){
+                DetailItemHStack(description: "Grade"){
                     Text(tick.grade.string)
                 }
-                DetailItemHStack(description: "Date", disableContent: isDisabled){
+                DetailItemHStack(description: "Date"){
                     ClimbDatePicker($tick.timeOfClimb)
                         .labelsHidden()
                 }
             }
             Section(header: Text("Additional info")) {
-                DetailItemHStack(description: "Comment", disableContent: isDisabled) {
+                DetailItemHStack(description: "Comment") {
                     TextEditor(text: $tick.comment)
                 }
+            }
+        }
+        .toolbar{
+            ToolbarItem(placement: .navigationBarTrailing){
+                EditButton()
             }
         }
     }
@@ -40,5 +44,7 @@ struct DetailView: View {
 
 #Preview {
     @Previewable @State var mock = Tick(climbName: "Silence", cragName: "Hanshelleren", timeOfClimb: .now, grade: Grade(FrenchClimbingGrades.grade9c), comment: "Hardest climb ever")
-    DetailView(tick: mock)
+    NavigationStack {
+        DetailView(tick: mock)
+    }
 }

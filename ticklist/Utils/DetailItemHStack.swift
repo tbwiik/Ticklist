@@ -9,9 +9,14 @@ import SwiftUI
 
 struct DetailItemHStack<Content: View>: View {
     
+    @Environment(\.editMode) private var editMode
+    
     let description: String
-    var disableContent: Bool = false
     var content: () -> Content
+    
+    private var disableContent: Bool {
+        editMode?.wrappedValue.isEditing == false
+    }
     
     var body: some View {
         HStack {
