@@ -18,9 +18,8 @@ struct AddClimbView: View {
         List {
             TextField("Climb Name", text: $tick.climbName)
             TextField("Crag Name", text: $tick.cragName)
-            DatePicker("Time of Climb", selection: $tick.timeOfClimb)
-                .datePickerStyle(.compact)
-            GradePickerView(grade: $tick.grade)
+            ClimbDatePicker($tick.timeOfClimb)
+            GradePicker($tick.grade)
             TextField("Climb Description", text: $tick.comment)
         }
         .listStyle(.inset)
