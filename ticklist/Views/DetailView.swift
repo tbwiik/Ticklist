@@ -10,17 +10,29 @@ import SwiftUI
 struct DetailView: View {
     
     @Bindable var tick: Tick
+    var isDisabled: Bool = true
     
     var body: some View {
         Form {
             Section(header: Text("Climb Details")) {
-                DetailItemHStack(description: "Name", content: tick.climbName)
-                DetailItemHStack(description: "Crag", content: tick.cragName)
-                DetailItemHStack(description: "Grade", content: tick.grade.string)
-                DetailItemHStack(description: "Date", content: tick.timeOfClimb.formatDate())
+                DetailItemHStack(description: "Name", disableContent: isDisabled) {
+                    TextField("", text: $tick.climbName)
+                }
+                DetailItemHStack(description: "Crag", disableContent: isDisabled){
+                    TextField("", text: $tick.cragName)
+                }
+                DetailItemHStack(description: "Grade", disableContent: isDisabled){
+                    Text(tick.grade.string)
+                }
+                DetailItemHStack(description: "Date", disableContent: isDisabled){
+                    ClimbDatePicker($tick.timeOfClimb)
+                        .labelsHidden()
+                }
             }
             Section(header: Text("Additional info")) {
-                DetailItemHStack(description: "Comment", content: tick.comment)
+                DetailItemHStack(description: "Comment", disableContent: isDisabled) {
+                    TextEditor(text: $tick.comment)
+                }
             }
         }
     }
