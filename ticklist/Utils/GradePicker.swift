@@ -11,6 +11,10 @@ struct GradePicker: View {
     
     @Binding var grade: Grade
     
+    init(_ grade: Binding<Grade>) {
+        self._grade = grade
+    }
+    
     var body: some View {
         HStack{
             Text("Grade")
@@ -31,5 +35,5 @@ struct GradePicker: View {
 }
 
 #Preview {
-    GradePicker(grade: .constant(Grade(FrenchClimbingGrades.grade6a)))
+    GradePicker(.constant(Grade(FrenchClimbingGrades.grade6a)))
 }
