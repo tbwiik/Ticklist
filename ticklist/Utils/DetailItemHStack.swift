@@ -24,7 +24,6 @@ struct DetailItemHStack<Content: View>: View {
                 .bold()
             Spacer()
             content()
-                .fixedSize(horizontal: true, vertical: false)
                 .disabled(disableContent)
         }
     }
@@ -33,6 +32,7 @@ struct DetailItemHStack<Content: View>: View {
 #Preview {
     Form {
         DetailItemHStack(description: "Description"){
+//            TextEditor(text: .constant("content"))
             TextField("Content", text: .constant("content"))
         }
         .padding()

@@ -16,9 +16,11 @@ struct DetailView: View {
             Section(header: Text("Climb Details")) {
                 DetailItemHStack(description: "Name") {
                     TextField("", text: $tick.climbName)
+                        .multilineTextAlignment(.trailing)
                 }
                 DetailItemHStack(description: "Crag"){
                     TextField("", text: $tick.cragName)
+                        .multilineTextAlignment(.trailing)
                 }
                 DetailItemHStack(description: "Grade"){
                     Text(tick.grade.string)
@@ -31,6 +33,8 @@ struct DetailView: View {
             Section(header: Text("Additional info")) {
                 DetailItemHStack(description: "Comment") {
                     TextEditor(text: $tick.comment)
+                        .multilineTextAlignment(.trailing)
+                    // TODO: format better
                 }
             }
         }
