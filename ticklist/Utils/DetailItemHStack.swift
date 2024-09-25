@@ -7,24 +7,29 @@
 
 import SwiftUI
 
-struct DetailItemHStack: View {
+struct DetailItemHStack<Content: View>: View {
     
     let description: String
-    let content: String
+    var disableContent: Bool = false
+    var content: () -> Content
     
     var body: some View {
         HStack {
             Text(description)
                 .bold()
             Spacer()
-            Text(content)
+            content()
+                .fixedSize(horizontal: true, vertical: false)
+                .disabled(disableContent)
         }
     }
 }
 
 #Preview {
     Form {
-        DetailItemHStack(description: "Description", content: "Content")
-            .padding()
+        DetailItemHStack(description: "Description"){
+            TextField("Content", text: .constant("content"))
+        }
+        .padding()
     }
 }
