@@ -1,5 +1,5 @@
 //
-//  GradePickerView.swift
+//  GradePicker.swift
 //  ticklist
 //
 //  Created by Torbjørn Wiik on 13/09/2024.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct GradePickerView: View {
+struct GradePicker: View {
     
     @Binding var grade: Grade
     
@@ -31,5 +31,5 @@ struct GradePickerView: View {
 }
 
 #Preview {
-    GradePickerView(grade: .constant(Grade(FrenchClimbingGrades.grade6a)))
+    GradePicker(grade: .constant(Grade(FrenchClimbingGrades.grade6a)))
 }
