@@ -24,6 +24,7 @@ struct DetailItemHStack<Content: View>: View {
                 .bold()
             Spacer()
             content()
+                .multilineTextAlignment(.trailing)
                 .disabled(disableContent)
         }
     }
