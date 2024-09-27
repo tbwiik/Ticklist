@@ -8,15 +8,17 @@
 import SwiftUI
 
 struct CommentView: View {
-    
+    //MARK: - Properties
     @Environment(\.editMode) private var editMode
     
     @Binding var comment: String
     
+    //MARK: - Computed Properties
     private var disableContent: Bool {
         editMode?.wrappedValue.isEditing == false
     }
     
+    //MARK: - View Body
     var body: some View {
         VStack{
             TextEditor(text: $comment)

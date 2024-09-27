@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct AddClimbView: View {
-    
+    //MARK: - Properties
     @Binding var tick: Tick
     
     let onButtonTap: () -> Void
     
+    //MARK: - View Body
     var body: some View {
-        
         List {
             FormField("Climb Name", text: $tick.climbName)
             FormField("Crag Name", text: $tick.cragName)
@@ -27,7 +27,6 @@ struct AddClimbView: View {
         Spacer()
         AddTickButtonView(action: onButtonTap, iconSystemName: "checkmark")
             .disabled(!tick.isComplete)
-        
     }
 }
 

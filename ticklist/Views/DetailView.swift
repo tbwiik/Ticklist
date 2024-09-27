@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct DetailView: View {
-    
+    //MARK: - Properties
     @Bindable var tick: Tick
     @State private var temp = "tmp"
     
+    //MARK: - View Body
     var body: some View {
         Form {
             Section(header: Text("Climb Details")) {

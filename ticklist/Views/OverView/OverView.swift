@@ -9,26 +9,26 @@ import SwiftUI
 import SwiftData
 
 struct OverView: View {
-    
-    private enum Constants {
-        static let searchbarPrompt = "Silence"
-    }
-    
+    // MARK: - Properties
     @Environment(\.modelContext) private var modelContext
+    @Query private var ticks: [Tick]
     
     @State private var isAddingClimb = false
     @State var searchText: String = ""
     @State var newTick = Tick()
     
-    @Query private var ticks: [Tick]
-
+    private enum Constants {
+        static let searchbarPrompt = "Silence"
+    }
+    
+    // MARK: - Computed Properties
     private var filteredTicks: [Tick] {
         guard !searchText.isEmpty else { return ticks }
         return ticks.filter { $0.climbName.lowercased().contains(searchText.lowercased()) }
     }
     
+    // MARK: - View Body
     var body: some View {
-        
         NavigationStack {
             ZStack {
                 VStack{
@@ -56,6 +56,7 @@ struct OverView: View {
         }
     }
     
+    //MARK: - Helper Methods
     private func createTick() {
         isAddingClimb = false
         modelContext.insert(newTick)
@@ -64,9 +65,7 @@ struct OverView: View {
 
     private func deleteTick(offsets: IndexSet) -> Void {
         withAnimation {
-            for index in offsets {
-                modelContext.delete(ticks[index])
-            }
+            for index in offsets {modelContext.delete(ticks[index])}
         }
     }
     

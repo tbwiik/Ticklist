@@ -8,19 +8,17 @@
 import SwiftUI
 
 struct AddTickButtonView: View {
-    
-    /// Detect whether view is disabled
+    //MARK: - Properties
     @Environment(\.isEnabled) var isEnabled
     
-    /// Action triggered by button tap
-    let action: () -> Void
+    let buttonTap: () -> Void
     
-    /// SF symbol systemname for icon on button
     var iconSystemName = "plus"
     
+    //MARK: - View Body
     var body: some View {
         VStack {
-            Button(action: action){
+            Button(action: buttonTap){
                 ZStack {
                     Rectangle()
                         .fill(isEnabled ? .green : .gray)
@@ -39,5 +37,5 @@ struct AddTickButtonView: View {
 }
 
 #Preview {
-    AddTickButtonView(action: {})
+    AddTickButtonView(buttonTap: {})
 }

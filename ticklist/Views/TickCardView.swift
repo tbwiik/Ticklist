@@ -8,15 +8,17 @@
 import SwiftUI
 
 struct TickCardView: View {
-    
+    //MARK: - Properties
     private let tickImage = "mountain.2"
     
     let tick: Tick
     
+    //MARK: - Initializers
     init(_ tick: Tick) {
         self.tick = tick
     }
     
+    //MARK: - View Body
     var body: some View {
         HStack{
             Label(tick.grade.string, systemImage: tickImage)
@@ -27,7 +29,6 @@ struct TickCardView: View {
                 Text(tick.cragName)
             }
             .padding()
-            
         }
     }
 }

@@ -8,16 +8,18 @@
 import SwiftUI
 
 struct DetailItemHStack<Content: View>: View {
-    
+    //MARK: - Properties
     @Environment(\.editMode) private var editMode
     
     let description: String
     @ViewBuilder var content: Content
     
+    //MARK: - Computed Properties
     private var disableContent: Bool {
         editMode?.wrappedValue.isEditing == false
     }
     
+    //MARK: - View Body
     var body: some View {
         HStack {
             Text(description)

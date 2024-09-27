@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct GradePicker: View {
+    //MARK: - Properties
+    @Binding var grade: Grade
     
     private enum Constants {
         static let cornerRadius: CGFloat = 8
@@ -15,12 +17,12 @@ struct GradePicker: View {
         static let inputBackgroundColor = Color(UIColor.systemGray6)
     }
     
-    @Binding var grade: Grade
-    
+    //MARK: - Initializers
     init(_ grade: Binding<Grade>) {
         self._grade = grade
     }
     
+    //MARK: - View Body
     var body: some View {
         HStack{
             Text("Grade")

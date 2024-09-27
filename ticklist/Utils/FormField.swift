@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct FormField: View {
+    //MARK: - Properties
+    let label: String
+    @Binding var text: String
     
     private enum Constants {
         static let cornerRadius: CGFloat = 10
@@ -15,14 +18,13 @@ struct FormField: View {
         static let inputBackgroundColor: Color = Color(UIColor.systemGray6)
     }
     
-    let label: String
-    @Binding var text: String
-    
+    //MARK: - Initializers
     init(_ label: String, text: Binding<String>) {
         self.label = label
         self._text = text
     }
     
+    //MARK: - View Body
     var body: some View {
         HStack {
             TextField(label, text: $text)
