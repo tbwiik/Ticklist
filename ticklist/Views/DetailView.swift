@@ -9,8 +9,15 @@ import SwiftUI
 
 struct DetailView: View {
     //MARK: - Properties
+    @Environment(\.editMode) private var editMode
     @Bindable var tick: Tick
     @State private var temp = "tmp"
+    @FocusState private var focusOnFirst: Bool
+    
+    //MARK: - Computed Properties
+    private var isEditing: Bool {
+        editMode?.wrappedValue.isEditing ?? false
+    }
     
     //MARK: - View Body
     var body: some View {
@@ -19,6 +26,7 @@ struct DetailView: View {
                 DetailItemHStack(description: "Name") {
                     TextField("", text: $tick.climbName)
                         .padding(.trailing)
+                        .focused($focusOnFirst)
                 }
                 DetailItemHStack(description: "Crag"){
                     TextField("", text: $tick.cragName)
@@ -37,7 +45,7 @@ struct DetailView: View {
                 NavigationLink {
                     CommentView(comment: $tick.comment)
                 }
-                label:
+            label:
                 {
                     DetailItemHStack(description: "Comment") {
                         Text(tick.comment)
@@ -51,6 +59,9 @@ struct DetailView: View {
             ToolbarItem(placement: .navigationBarTrailing){
                 EditButton()
             }
+        }
+        .onChange(of: isEditing) { oldValue, newValue in
+            isEditing = newValue
         }
     }
 }
