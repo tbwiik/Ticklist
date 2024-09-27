@@ -12,9 +12,10 @@ struct GradePicker: View {
     @Binding var grade: Grade
     
     private enum Constants {
-        static let cornerRadius: CGFloat = 8
         static let padding : CGFloat = 8
-        static let inputBackgroundColor = Color(UIColor.systemGray6)
+        static let gradeSystemColor = Color.gray
+        static let gradeButtonColor = Color.black
+        static let separator = Color.white
     }
     
     //MARK: - Initializers
@@ -24,23 +25,36 @@ struct GradePicker: View {
     
     //MARK: - View Body
     var body: some View {
-        HStack{
-            Text("Grade")
-            Spacer()            
-            Picker("Grade of Climb", selection: $grade.value) {
-                ForEach(FrenchClimbingGrades.allCases){ grade in
-                    Text(grade.rawValue).tag(grade)
+        HStack {
+            Text("Grade of Climb")
+            Spacer()
+            HStack {
+                Text("French")
+                    .foregroundStyle(Constants.gradeSystemColor)
+                    .padding(.leading)
+                Rectangle().frame(width: 1).foregroundStyle(Constants.separator)
+                Picker("Grade of Climb", selection: $grade.value) {
+                    ForEach(FrenchClimbingGrades.allCases){ grade in
+                        Text(grade.rawValue).tag(grade)
+                    }
                 }
+                .pickerStyle(.menu)
+                .labelsHidden()
+                .tint(Constants.gradeButtonColor)
+                .padding(.trailing)
             }
-            .pickerStyle(.menu)
-            .background(Constants.inputBackgroundColor)
-            .tint(.black)
-            .cornerRadius(Constants.cornerRadius)
-            .labelsHidden()
+            .background(InputFieldBackground())
         }
     }
 }
 
 #Preview {
-    GradePicker(.constant(Grade(FrenchClimbingGrades.grade6a)))
+    
+    @Previewable @State var grade: Grade = .init(FrenchClimbingGrades.grade6a)
+    
+    List {
+        NavigationStack {
+            GradePicker($grade)
+        }
+    }
 }

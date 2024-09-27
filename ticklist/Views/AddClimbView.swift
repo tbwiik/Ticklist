@@ -33,8 +33,10 @@ struct AddClimbView: View {
 #Preview {
     Text("")
         .sheet(isPresented: .constant(true)){
-            AddClimbView(tick: .constant(Tick()), onButtonTap: {})
-                .presentationDragIndicator(.visible)
-                .presentationDetents(.init([.medium]))
+            NavigationStack {
+                AddClimbView(tick: .constant(Tick()), onButtonTap: {})
+                    .presentationDragIndicator(.visible)
+                    .presentationDetents(.init([.medium]))
+            }
         }
 }

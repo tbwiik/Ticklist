@@ -13,9 +13,7 @@ struct FormField: View {
     @Binding var text: String
     
     private enum Constants {
-        static let cornerRadius: CGFloat = 10
         static let padding: CGFloat = 8
-        static let inputBackgroundColor: Color = Color(UIColor.systemGray6)
     }
     
     //MARK: - Initializers
@@ -30,10 +28,7 @@ struct FormField: View {
             TextField(label, text: $text)
                 .multilineTextAlignment(.leading)
                 .padding(Constants.padding)
-                .background(
-                    RoundedRectangle(cornerRadius: Constants.cornerRadius)
-                        .fill(Constants.inputBackgroundColor)
-                )
+                .background(InputFieldBackground())
         }
     }
 }
