@@ -18,12 +18,15 @@ struct DetailView: View {
             Section(header: Text("Climb Details")) {
                 DetailItemHStack(description: "Name") {
                     TextField("", text: $tick.climbName)
+                        .padding(.trailing)
                 }
                 DetailItemHStack(description: "Crag"){
                     TextField("", text: $tick.cragName)
+                        .padding(.trailing)
                 }
                 DetailItemHStack(description: "Grade"){
                     Text(tick.grade.string)
+                        .padding(.trailing)
                 }
                 DetailItemHStack(description: "Date"){
                     ClimbDatePicker($tick.timeOfClimb)
