@@ -27,6 +27,8 @@ struct GradePicker: View {
     var body: some View {
         HStack {
             Text("Grade of Climb")
+                .truncationMode(.tail)
+                .layoutPriority(2)
             Spacer()
             HStack {
                 Text("French")
@@ -44,13 +46,15 @@ struct GradePicker: View {
                 .padding(.trailing)
             }
             .background(InputFieldBackground())
+            .layoutPriority(1)
+            .lineLimit(1)
         }
     }
 }
 
 #Preview {
     
-    @Previewable @State var grade: Grade = .init(FrenchClimbingGrades.grade6a)
+    @Previewable @State var grade: Grade = .init(FrenchClimbingGrades.grade6aPlus)
     
     List {
         NavigationStack {
