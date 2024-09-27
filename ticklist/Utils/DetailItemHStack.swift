@@ -12,7 +12,7 @@ struct DetailItemHStack<Content: View>: View {
     @Environment(\.editMode) private var editMode
     
     let description: String
-    var content: () -> Content
+    @ViewBuilder var content: Content
     
     private var disableContent: Bool {
         editMode?.wrappedValue.isEditing == false
@@ -23,7 +23,7 @@ struct DetailItemHStack<Content: View>: View {
             Text(description)
                 .bold()
             Spacer()
-            content()
+            content
                 .multilineTextAlignment(.trailing)
                 .disabled(disableContent)
         }
