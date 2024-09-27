@@ -10,14 +10,24 @@ import SwiftData
 
 struct OverView: View {
     
-    @Environment(\.modelContext) private var modelContext
-    @Query private var ticks: [Tick]
+    private enum Constants {
+        static let searchbarPrompt = "Silence"
+        static let backgroundSheetPresented = Color.white
+    }
     
-    private let searchbarPrompt = "Silence"
+    @Environment(\.modelContext) private var modelContext
+    
     
     @State private var isAddingClimb = false
-    @State var text = ""
+    @State var searchText: String = ""
     @State var newTick = Tick()
+    
+    @Query private var ticks: [Tick]
+
+    private var filteredTicks: [Tick] {
+        guard !searchText.isEmpty else { return ticks }
+        return ticks.filter { $0.climbName.lowercased().contains(searchText.lowercased()) }
+    }
     
     var body: some View {
         
@@ -25,7 +35,7 @@ struct OverView: View {
             ZStack {
                 VStack{
                     List {
-                        ForEach(ticks) { tick in
+                        ForEach(filteredTicks) { tick in
                             NavigationLink{
                                 DetailView(tick: tick)
                             } label: {
@@ -34,12 +44,12 @@ struct OverView: View {
                         }
                         .onDelete(perform: deleteTick)
                     }
-                    .searchable(text: $text, prompt: searchbarPrompt)
+                    .searchable(text: $searchText, prompt: Constants.searchbarPrompt)
                 }
                 VStack {
                     Spacer()
                     AddTickButtonView(action: { isAddingClimb = true})
-                        .background(Color.white)
+                        .background(Constants.backgroundSheetPresented)
                 }
             }
         }
