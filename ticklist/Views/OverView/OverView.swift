@@ -78,5 +78,5 @@ struct OverView: View {
 #Preview {
     OverView()
         .modelContainer(for: Tick.self, inMemory: true)
-        .preferredColorScheme(.dark)
+        .preferredColorScheme(.light)
 }

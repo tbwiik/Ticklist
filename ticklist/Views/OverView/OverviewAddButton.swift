@@ -12,7 +12,7 @@ struct OverviewAddButton: View {
     @Environment(\.colorScheme) private var colorScheme
     
     private enum Constants {
-        static let backgroundSheetColorLight = Color.white
+        static let backgroundSheetColorLight = Color(UIColor.systemGray6)
         static let backgroundSheetColorDark = Color(UIColor.systemGray3)
     }
     
@@ -33,5 +33,5 @@ struct OverviewAddButton: View {
 
 #Preview {
     OverviewAddButton(isAddingClimb: .constant(true))
-        .preferredColorScheme(.dark)
+        .preferredColorScheme(.light)
 }
