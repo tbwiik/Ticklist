@@ -10,6 +10,7 @@ import SwiftUI
 struct AddClimbView: View {
     //MARK: - Properties
     @Binding var tick: Tick
+    @FocusState private var focus: Bool
     
     let onButtonTap: () -> Void
     
@@ -17,6 +18,7 @@ struct AddClimbView: View {
     var body: some View {
         List {
             FormField("Climb Name", text: $tick.climbName)
+                .focused($focus)
             FormField("Crag Name", text: $tick.cragName)
             ClimbDatePicker($tick.timeOfClimb)
             GradePicker($tick.grade)
@@ -24,6 +26,7 @@ struct AddClimbView: View {
         }
         .listStyle(.inset)
         .padding()
+        .onAppear() { focus = true }
         Spacer()
         AddTickButtonView(buttonTap: onButtonTap, iconSystemName: "checkmark")
             .disabled(!tick.isComplete)
