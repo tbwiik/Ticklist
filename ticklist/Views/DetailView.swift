@@ -10,6 +10,7 @@ import SwiftUI
 struct DetailView: View {
     
     @Bindable var tick: Tick
+    @State private var temp = "tmp"
     
     var body: some View {
         Form {
@@ -29,9 +30,16 @@ struct DetailView: View {
                 }
             }
             Section(header: Text("Additional info")) {
-                DetailItemHStack(description: "Comment") {
-                    TextEditor(text: $tick.comment)
-                    // TODO: format better
+                NavigationLink {
+                    CommentView(comment: $tick.comment)
+                }
+                label:
+                {
+                    DetailItemHStack(description: "Comment") {
+                        Text(tick.comment)
+                            .lineLimit(1)
+                            .truncationMode(.tail)
+                    }
                 }
             }
         }
@@ -44,7 +52,7 @@ struct DetailView: View {
 }
 
 #Preview {
-    @Previewable @State var mock = Tick(climbName: "Silence", cragName: "Hanshelleren", timeOfClimb: .now, grade: Grade(FrenchClimbingGrades.grade9c), comment: "Hardest climb ever")
+    @Previewable @State var mock = Tick(climbName: "Silence", cragName: "Hanshelleren", timeOfClimb: .now, grade: Grade(FrenchClimbingGrades.grade9c), comment: "Hardest climb ever whenever you sing to me tonight")
     NavigationStack {
         DetailView(tick: mock)
     }
