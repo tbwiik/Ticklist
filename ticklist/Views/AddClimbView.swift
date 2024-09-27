@@ -16,11 +16,11 @@ struct AddClimbView: View {
     var body: some View {
         
         List {
-            TextField("Climb Name", text: $tick.climbName)
-            TextField("Crag Name", text: $tick.cragName)
+            FormField("Climb Name", text: $tick.climbName)
+            FormField("Crag Name", text: $tick.cragName)
             ClimbDatePicker($tick.timeOfClimb)
             GradePicker($tick.grade)
-            TextField("Climb Description", text: $tick.comment)
+            FormField("Comment", text: $tick.comment)
         }
         .listStyle(.inset)
         .padding()
