@@ -44,9 +44,7 @@ struct DetailView: View {
             Section(header: Text("Additional info")) {
                 NavigationLink {
                     CommentView(comment: $tick.comment)
-                }
-            label:
-                {
+                } label: {
                     DetailItemHStack(description: "Comment") {
                         Text(tick.comment)
                             .lineLimit(1)
@@ -61,7 +59,7 @@ struct DetailView: View {
             }
         }
         .onChange(of: isEditing) { oldValue, newValue in
-            isEditing = newValue
+            focusOnFirst = newValue
         }
     }
 }
