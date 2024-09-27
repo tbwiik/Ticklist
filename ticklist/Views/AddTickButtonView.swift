@@ -21,7 +21,7 @@ struct AddTickButtonView: View {
             Button(action: buttonTap){
                 ZStack {
                     Rectangle()
-                        .fill(isEnabled ? .green : .gray)
+                        .fill(isEnabled ? .accent : .gray)
                         .clipShape(.buttonBorder)
                         .frame(maxWidth: .infinity)
                         .frame(height: 64)

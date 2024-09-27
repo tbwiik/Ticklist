@@ -20,6 +20,7 @@ struct ClimbDatePicker: View {
     var body: some View {
         DatePicker("Time of Climb", selection: $date, displayedComponents: .date)
             .datePickerStyle(.compact)
+            .tint(.accentColor)
     }
 }
 
