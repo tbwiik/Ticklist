@@ -34,7 +34,6 @@ struct GradePicker: View {
             .background(Constants.inputBackgroundColor)
             .tint(.black)
             .cornerRadius(Constants.cornerRadius)
-            .padding(Constants.padding)
             .labelsHidden()
         }
     }
