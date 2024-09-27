@@ -9,6 +9,12 @@ import SwiftUI
 
 struct GradePicker: View {
     
+    private enum Constants {
+        static let cornerRadius: CGFloat = 8
+        static let padding : CGFloat = 8
+        static let inputBackgroundColor = Color(UIColor.systemGray5)
+    }
+    
     @Binding var grade: Grade
     
     init(_ grade: Binding<Grade>) {
@@ -25,10 +31,10 @@ struct GradePicker: View {
                 }
             }
             .pickerStyle(.menu)
-            .background(Color(UIColor.systemGray5))
+            .background(Constants.inputBackgroundColor)
             .tint(.black)
-            .cornerRadius(8)
-            .padding(8)
+            .cornerRadius(Constants.cornerRadius)
+            .padding(Constants.padding)
             .labelsHidden()
         }
     }
