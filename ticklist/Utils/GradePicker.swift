@@ -32,7 +32,7 @@ struct GradePicker: View {
                 Text("French")
                     .foregroundStyle(Constants.gradeSystemColor)
                     .padding(.leading)
-                Rectangle().frame(width: 1).foregroundStyle(Constants.separator)
+                Rectangle().frame(width: 2).foregroundStyle(Constants.separator)
                 Picker("Grade of Climb", selection: $grade.value) {
                     ForEach(FrenchClimbingGrades.allCases){ grade in
                         Text(grade.rawValue).tag(grade)
