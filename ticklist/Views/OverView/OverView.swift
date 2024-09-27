@@ -12,11 +12,9 @@ struct OverView: View {
     
     private enum Constants {
         static let searchbarPrompt = "Silence"
-        static let backgroundSheetPresented = Color.white
     }
     
     @Environment(\.modelContext) private var modelContext
-    
     
     @State private var isAddingClimb = false
     @State var searchText: String = ""
@@ -46,11 +44,7 @@ struct OverView: View {
                     }
                     .searchable(text: $searchText, prompt: Constants.searchbarPrompt)
                 }
-                VStack {
-                    Spacer()
-                    AddTickButtonView(action: { isAddingClimb = true})
-                        .background(Constants.backgroundSheetPresented)
-                }
+                OverviewAddButton(isAddingClimb: $isAddingClimb)
             }
         }
         .navigationTitle("Ticklist")
@@ -84,4 +78,5 @@ struct OverView: View {
 #Preview {
     OverView()
         .modelContainer(for: Tick.self, inMemory: true)
+        .preferredColorScheme(.dark)
 }
