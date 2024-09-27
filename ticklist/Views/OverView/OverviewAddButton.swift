@@ -28,7 +28,7 @@ struct OverviewAddButton: View {
     var body: some View {
         VStack {
             Spacer()
-            AddTickButtonView(action: { isAddingClimb = true})
+            AddTickButtonView(buttonTap: { isAddingClimb = true})
                 .background(backgroundSheetColor)
         }
     }

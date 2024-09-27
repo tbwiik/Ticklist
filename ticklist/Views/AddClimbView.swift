@@ -25,7 +25,7 @@ struct AddClimbView: View {
         .listStyle(.inset)
         .padding()
         Spacer()
-        AddTickButtonView(action: onButtonTap, iconSystemName: "checkmark")
+        AddTickButtonView(buttonTap: onButtonTap, iconSystemName: "checkmark")
             .disabled(!tick.isComplete)
     }
 }
