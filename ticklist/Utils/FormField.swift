@@ -12,7 +12,7 @@ struct FormField: View {
     private enum Constants {
         static let cornerRadius: CGFloat = 10
         static let padding: CGFloat = 8
-        static let inputBackgroundColor: Color = Color(UIColor.systemGray5)
+        static let inputBackgroundColor: Color = Color(UIColor.systemGray6)
     }
     
     let label: String

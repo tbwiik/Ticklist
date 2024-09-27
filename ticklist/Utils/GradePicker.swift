@@ -12,7 +12,7 @@ struct GradePicker: View {
     private enum Constants {
         static let cornerRadius: CGFloat = 8
         static let padding : CGFloat = 8
-        static let inputBackgroundColor = Color(UIColor.systemGray5)
+        static let inputBackgroundColor = Color(UIColor.systemGray6)
     }
     
     @Binding var grade: Grade
