@@ -10,19 +10,21 @@ import SwiftUI
 struct CommentView: View {
     //MARK: - Properties
     @Environment(\.editMode) private var editMode
+    @FocusState private var focusOnTextEditor: Bool
     
     @Binding var comment: String
     
     //MARK: - Computed Properties
-    private var disableContent: Bool {
-        editMode?.wrappedValue.isEditing == false
+    private var isEditing: Bool {
+        editMode?.wrappedValue.isEditing ?? false
     }
     
     //MARK: - View Body
     var body: some View {
         VStack{
             TextEditor(text: $comment)
-                .disabled(disableContent)
+                .disabled(!isEditing)
+                .focused($focusOnTextEditor)
                 .padding()
         }
         .navigationTitle("Comment")
@@ -31,6 +33,9 @@ struct CommentView: View {
             ToolbarItem(placement: .navigationBarTrailing) {
                 EditButton()
             }
+        }
+        .onChange(of: isEditing) { oldValue, newValue in
+            focusOnTextEditor = newValue
         }
     }
 }
