@@ -6,19 +6,5 @@
 //
 
 import Foundation
-import SwiftData
 
-@Model
-class Grade: Identifiable, Hashable, Equatable {
-    var id: UUID
-    var value: FrenchClimbingGrades
-    
-    init(_ value: FrenchClimbingGrades) {
-        self.id = UUID()
-        self.value = value
-    }
-    
-    var string: String {
-        value.rawValue
-    }
-}
+typealias Grade = TicklistSchemaV2.Grade

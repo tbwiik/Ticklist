@@ -3,4 +3,52 @@
    uuid = "39F30941-52AB-424D-A1FA-16E0A7BB182A"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4E906F4F-9DF8-457F-B2E6-2FF7880300F9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ticklist/Models/Versions/TicklistSchemaMigrationPlan.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "migrateV1toV2"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "4E906F4F-9DF8-457F-B2E6-2FF7880300F9 - 32b632c49d393c9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (SwiftData.ModelContext) throws -&gt; () in variable initialization expression of static ticklist.TicklistSchemaMigrationPlan.migrateV1toV2 : SwiftData.MigrationStage"
+                  moduleName = "ticklist.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/torbjornwiik/Documents/012-Koseprogg/Swift%20projects/ticklist/ticklist/Models/Versions/TicklistSchemaMigrationPlan.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28">
+               </Location>
+               <Location
+                  uuid = "4E906F4F-9DF8-457F-B2E6-2FF7880300F9 - 32b632c49d393c9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (SwiftData.ModelContext) throws -&gt; () in variable initialization expression of static ticklist.TicklistSchemaMigrationPlan.migrateV1toV2 : SwiftData.MigrationStage"
+                  moduleName = "ticklist.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/torbjornwiik/Documents/012-Koseprogg/Swift%20projects/ticklist/ticklist/Models/Versions/TicklistSchemaMigrationPlan.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

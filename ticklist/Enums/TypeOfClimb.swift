@@ -12,6 +12,7 @@ enum TypeOfClimb: String, Codable, CaseIterable, Identifiable {
     case boltedMultipitch
     case tradSinglepitch
     case tradMultipitch
+    case notSet
     
     var id: Self { self }
     
@@ -27,6 +28,8 @@ enum TypeOfClimb: String, Codable, CaseIterable, Identifiable {
             "Trad Single"
         case .tradMultipitch:
             "Trad"
+        case .notSet:
+            "Not Set"
         }
 
     }
@@ -41,6 +44,8 @@ enum TypeOfClimb: String, Codable, CaseIterable, Identifiable {
             "Trad Singlepitch"
         case .tradMultipitch:
             "Trad Multipitch"
+        case .notSet:
+            "Type of Climb is not set"
         }
     }
 }
