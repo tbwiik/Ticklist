@@ -48,4 +48,7 @@ enum TypeOfClimb: String, Codable, CaseIterable, Identifiable {
             "Type of Climb is not set"
         }
     }
+    
+    /// All cases except .notSet
+    static var allCases: [TypeOfClimb] { [.boltedSinglepitch, .boltedMultipitch, .tradSinglepitch, .tradMultipitch] }
 }
