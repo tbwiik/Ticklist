@@ -53,6 +53,8 @@ struct DetailView: View {
                 }
             }
         }
+        .navigationTitle(tick.climbName)
+        .navigationBarTitleDisplayMode(.inline)
         .toolbar{
             ToolbarItem(placement: .navigationBarTrailing){
                 EditButton()
