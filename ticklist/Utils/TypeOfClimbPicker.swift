@@ -10,17 +10,17 @@ import SwiftUI
 struct TypeOfClimbPicker: View {
     //MARK: - Properties
     @Binding var typeOfClimb: TypeOfClimb
+    var doShortDescription = true
     
     //MARK: - View Body
     var body: some View {
         Picker(selection: $typeOfClimb) {
             ForEach(TypeOfClimb.allCases) { type in
-                Text(type.shortDescription).tag(type)
+                Text(doShortDescription ? type.shortDescription : type.description).tag(type)
             }
         } label: {
             Text("Type of Climb").bold()
         }
-
     }
 }
 
