@@ -27,17 +27,19 @@ struct DetailItemHStack<Content: View>: View {
             Spacer()
             content
                 .multilineTextAlignment(.trailing)
-                .disabled(disableContent)
+                .disabled(false)
         }
     }
 }
 
 #Preview {
-    Form {
-        DetailItemHStack(description: "Description"){
-//            TextEditor(text: .constant("content"))
-            TextField("Content", text: .constant("content"))
+    NavigationStack {
+        Form {
+            DetailItemHStack(description: "Type"){
+                //            TextEditor(text: .constant("content"))
+//                            TextField("Content", text: .constant("content"))
+            }
+            .padding()
         }
-        .padding()
     }
 }

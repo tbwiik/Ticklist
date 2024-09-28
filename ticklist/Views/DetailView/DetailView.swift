@@ -32,10 +32,7 @@ struct DetailView: View {
                     TextField("", text: $tick.cragName)
                         .padding(.trailing)
                 }
-                DetailItemHStack(description: "Type") {
-                    Text(tick.typeOfClimb.description)
-                        .padding(.trailing)
-                }
+                TypeOfClimbDetailItem(typeOfClimb: $tick.typeOfClimb)
                 DetailItemHStack(description: "Grade"){
                     Text(tick.grade.string)
                         .padding(.trailing)
