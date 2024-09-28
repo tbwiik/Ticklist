@@ -20,7 +20,6 @@ struct ticklistApp: App {
         do {
             return try ModelContainer(
                 for: schema,
-                migrationPlan: TicklistSchemaMigrationPlan.self,
                 configurations: [modelConfiguration]
             )
         } catch {
