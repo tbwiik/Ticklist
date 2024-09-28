@@ -20,7 +20,7 @@ struct TypeOfClimbDetailItem: View {
     var body: some View {
         DetailItemHStack(description: "Type"){
             if isEditing {
-                TypeOfClimbPicker(typeOfClimb: .constant(TypeOfClimb.defaultValue))
+                TypeOfClimbPicker(typeOfClimb: $typeOfClimb, doShortDescription: false)
                     .labelsHidden()
                     .pickerStyle(.menu)
             } else {
