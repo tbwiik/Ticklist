@@ -17,6 +17,7 @@ struct AddClimbView: View {
     //MARK: - View Body
     var body: some View {
         List {
+            TypeOfClimbPicker(typeOfClimb: $tick.typeOfClimb)
             FormField("Climb Name", text: $tick.climbName)
                 .focused($focus)
             FormField("Crag Name", text: $tick.cragName)

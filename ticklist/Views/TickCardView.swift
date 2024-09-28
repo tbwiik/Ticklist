@@ -34,6 +34,6 @@ struct TickCardView: View {
 }
 
 #Preview {
-    @Previewable @State var mock = Tick(climbName: "Silence", cragName: "Hanshelleren", timeOfClimb: .now, grade: Grade(FrenchClimbingGrades.grade9c), comment: "Hardest climb ever")
+    @Previewable @State var mock = Tick(climbName: "Silence", cragName: "Hanshelleren", timeOfClimb: .now, typeOfClimb: TypeOfClimb.boltedSinglepitch, grade: Grade(FrenchClimbingGrades.grade9c), comment: "Hardest climb ever")
     TickCardView(mock)
 }

@@ -16,14 +16,16 @@ class Tick: Identifiable {
     var climbName: String
     var cragName: String
     var timeOfClimb: Date
+    var typeOfClimb: TypeOfClimb
     var grade: Grade
     var comment: String
     
     // MARK: - Initializers
-    init (climbName: String, cragName: String, timeOfClimb: Date, grade: Grade, comment: String) {
+    init (climbName: String, cragName: String, timeOfClimb: Date, typeOfClimb: TypeOfClimb, grade: Grade, comment: String) {
         self.climbName = climbName
         self.cragName = cragName
         self.timeOfClimb = timeOfClimb
+        self.typeOfClimb = typeOfClimb
         self.grade = grade
         self.comment = comment
     }
@@ -32,6 +34,7 @@ class Tick: Identifiable {
         self.climbName = ""
         self.cragName = ""
         self.timeOfClimb = Date.now
+        self.typeOfClimb = TypeOfClimb.defaultValue
         self.grade = Grade(FrenchClimbingGrades.defaultValue)
         self.comment = ""
     }
