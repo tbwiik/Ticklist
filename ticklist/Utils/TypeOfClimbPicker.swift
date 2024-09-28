@@ -15,7 +15,7 @@ struct TypeOfClimbPicker: View {
     var body: some View {
         Picker("Type of Climb", selection: $typeOfClimb) {
             ForEach(TypeOfClimb.allCases) { type in
-                Text(type.rawValue).tag(type)
+                Text(type.shortDescription).tag(type)
             }
         }
         .pickerStyle(.segmented)
@@ -23,5 +23,7 @@ struct TypeOfClimbPicker: View {
 }
 
 #Preview {
-    TypeOfClimbPicker(typeOfClimb: .constant(TypeOfClimb.defaultValue))
+    Form {
+        TypeOfClimbPicker(typeOfClimb: .constant(TypeOfClimb.defaultValue))
+    }
 }

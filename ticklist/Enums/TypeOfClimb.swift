@@ -17,14 +17,28 @@ enum TypeOfClimb: String, Codable, CaseIterable, Identifiable {
     
     static var defaultValue: TypeOfClimb { .boltedSinglepitch }
     
-    var rawValue: String {
+    var shortDescription: String {
         switch self {
         case .boltedSinglepitch:
             "Sport"
         case .boltedMultipitch:
             "Multipitch"
         case .tradSinglepitch:
+            "Trad Single"
+        case .tradMultipitch:
             "Trad"
+        }
+
+    }
+    
+    var description: String {
+        switch self {
+        case .boltedSinglepitch:
+            "Bolted Singlepitch"
+        case .boltedMultipitch:
+            "Bolted Multipitch"
+        case .tradSinglepitch:
+            "Trad Singlepitch"
         case .tradMultipitch:
             "Trad Multipitch"
         }

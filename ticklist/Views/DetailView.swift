@@ -33,7 +33,7 @@ struct DetailView: View {
                         .padding(.trailing)
                 }
                 DetailItemHStack(description: "Type") {
-                    Text(tick.typeOfClimb.rawValue)
+                    Text(tick.typeOfClimb.description)
                         .padding(.trailing)
                 }
                 DetailItemHStack(description: "Grade"){
