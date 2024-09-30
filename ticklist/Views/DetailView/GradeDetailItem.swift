@@ -25,7 +25,7 @@ struct GradeDetailItem: View {
             if isEditing {
                 GradePicker($grade)
             } else {
-                Text("French " + grade.string)
+                Text("\(grade.systemName) \(grade.string)")
             }
         }
     }

@@ -10,7 +10,9 @@ import Foundation
 /// Enum for French Climbing Climbing Grades
 enum FrenchClimbingGrades: String, GradingSystem {
     var id: Self { self }
-    static var defaultValue: Self { .grade6a }
+//    static let defaultValue: Self { .grade6a }
+    static let defaultValue = Self.grade6a
+    static let systemName: String = "French"
     
     case grade1 = "1"
     case grade2 = "2"

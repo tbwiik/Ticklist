@@ -21,4 +21,8 @@ class Grade: Identifiable, Hashable, Equatable {
     var string: String {
         value.rawValue
     }
+    
+    var systemName: String {
+        type(of: value).systemName
+    }
 }

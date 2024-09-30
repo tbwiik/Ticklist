@@ -40,7 +40,7 @@ struct GradePicker: View {
                 Spacer()
             }
             HStack {
-                Text("French")
+                Text(grade.systemName)
                     .foregroundStyle(Constants.gradeSystemColor)
                     .padding(.leading)
                 Rectangle().frame(width: 2).foregroundStyle(Constants.separator)
