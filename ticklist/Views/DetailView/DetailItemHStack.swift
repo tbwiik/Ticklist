@@ -27,7 +27,7 @@ struct DetailItemHStack<Content: View>: View {
             Spacer()
             content
                 .multilineTextAlignment(.trailing)
-                .disabled(false)
+                .disabled(disableContent)
         }
     }
 }
@@ -35,6 +35,7 @@ struct DetailItemHStack<Content: View>: View {
 #Preview {
     NavigationStack {
         Form {
+            EditButton()
             DetailItemHStack(description: "Type"){
                 //            TextEditor(text: .constant("content"))
 //                            TextField("Content", text: .constant("content"))
