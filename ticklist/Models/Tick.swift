@@ -32,7 +32,7 @@ final class Tick: Identifiable {
         self.climbName = ""
         self.cragName = ""
         self.timeOfClimb = Date.now
-        self.typeOfClimb = TypeOfClimb.notSet
+        self.typeOfClimb = TypeOfClimb.boltedSinglepitch
         self.grade = Grade(FrenchClimbingGrades.defaultValue)
         self.comment = ""
     }
