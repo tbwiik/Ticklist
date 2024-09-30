@@ -9,6 +9,7 @@ import SwiftUI
 
 struct GradePicker: View {
     //MARK: - Properties
+    let labelText: String?
     @Binding var grade: Grade
     
     private enum Constants {
@@ -21,21 +22,29 @@ struct GradePicker: View {
     //MARK: - Initializers
     init(_ grade: Binding<Grade>) {
         self._grade = grade
+        self.labelText = nil
+    }
+    
+    init(_ labelText: String, grade: Binding<Grade>) {
+        self.labelText = labelText
+        self._grade = grade
     }
     
     //MARK: - View Body
     var body: some View {
         HStack {
-            Text("Grade of Climb")
-                .truncationMode(.tail)
-                .layoutPriority(2)
-            Spacer()
+            if (labelText != nil) {
+                Text(labelText!)
+                    .truncationMode(.tail)
+                    .layoutPriority(2)
+                Spacer()
+            }
             HStack {
                 Text("French")
                     .foregroundStyle(Constants.gradeSystemColor)
                     .padding(.leading)
                 Rectangle().frame(width: 2).foregroundStyle(Constants.separator)
-                Picker("Grade of Climb", selection: $grade.value) {
+                Picker("", selection: $grade.value) {
                     ForEach(FrenchClimbingGrades.allCases){ grade in
                         Text(grade.rawValue).tag(grade)
                     }
@@ -58,7 +67,7 @@ struct GradePicker: View {
     
     List {
         NavigationStack {
-            GradePicker($grade)
+            GradePicker("Grade of Climb", grade: $grade)
         }
     }
 }

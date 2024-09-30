@@ -39,6 +39,7 @@ struct DetailItemHStack<Content: View>: View {
             DetailItemHStack(description: "Type"){
                 //            TextEditor(text: .constant("content"))
 //                            TextField("Content", text: .constant("content"))
+
             }
             .padding()
         }

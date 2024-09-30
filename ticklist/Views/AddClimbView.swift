@@ -23,7 +23,7 @@ struct AddClimbView: View {
                 .focused($focus)
             FormField("Crag Name", text: $tick.cragName)
             ClimbDatePicker($tick.timeOfClimb)
-            GradePicker($tick.grade)
+            GradePicker("Grade of Climb", grade: $tick.grade)
             FormField("Comment", text: $tick.comment)
         }
         .listStyle(.inset)

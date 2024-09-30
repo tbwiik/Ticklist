@@ -33,10 +33,7 @@ struct DetailView: View {
                         .padding(.trailing)
                 }
                 TypeOfClimbDetailItem(typeOfClimb: $tick.typeOfClimb)
-                DetailItemHStack(description: "Grade"){
-                    Text(tick.grade.string)
-                        .padding(.trailing)
-                }
+                GradeDetailItem($tick.grade)
                 DetailItemHStack(description: "Date"){
                     ClimbDatePicker($tick.timeOfClimb)
                         .labelsHidden()

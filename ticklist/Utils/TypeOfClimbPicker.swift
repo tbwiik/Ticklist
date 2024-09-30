@@ -27,6 +27,6 @@ struct TypeOfClimbPicker: View {
 #Preview {
     Form {
         TypeOfClimbPicker(typeOfClimb: .constant(TypeOfClimb.boltedSinglepitch))
-            .pickerStyle(.segmented)
+            .pickerStyle(.menu)
     }
 }
