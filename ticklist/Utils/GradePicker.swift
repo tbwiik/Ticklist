@@ -11,13 +11,7 @@ struct GradePicker: View {
     //MARK: - Properties
     let labelText: String?
     @Binding var grade: Grade
-    
-    private enum Constants {
-        static let padding : CGFloat = 8
-        static let gradeSystemColor = Color.gray
-        static let gradeButtonColor = Color.black
-        static let separator = Color.white
-    }
+    @Environment(\.isEnabled) private var isEnabled
     
     //MARK: - Initializers
     init(_ grade: Binding<Grade>) {
@@ -39,25 +33,45 @@ struct GradePicker: View {
                     .layoutPriority(2)
                 Spacer()
             }
-            HStack {
-                Text(grade.systemName)
-                    .foregroundStyle(Constants.gradeSystemColor)
-                    .padding(.leading)
-                Rectangle().frame(width: 2).foregroundStyle(Constants.separator)
-                Picker("", selection: $grade.value) {
-                    ForEach(FrenchClimbingGrades.allCases){ grade in
-                        Text(grade.rawValue).tag(grade)
-                    }
-                }
-                .pickerStyle(.menu)
-                .labelsHidden()
-                .tint(Constants.gradeButtonColor)
-                .padding(.trailing)
+            if isEnabled {
+                EnabledGradePicker(grade: $grade)
+            } else {
+                Text("\(grade.systemName) \(grade.string)")
             }
-            .background(InputFieldBackground())
-            .layoutPriority(1)
-            .lineLimit(1)
         }
+    }
+}
+
+struct EnabledGradePicker: View {
+    
+    @Binding var grade: Grade
+    
+    private enum Constants {
+        static let padding : CGFloat = 8
+        static let gradeSystemColor = Color.gray
+        static let gradeButtonColor = Color.black
+        static let separator = Color.white
+    }
+    
+    var body: some View {
+        HStack {
+            Text(grade.systemName)
+                .foregroundStyle(Constants.gradeSystemColor)
+                .padding(.leading)
+            Rectangle().frame(width: 2).foregroundStyle(Constants.separator)
+            Picker("", selection: $grade.value) {
+                ForEach(FrenchClimbingGrades.allCases){ grade in
+                    Text(grade.rawValue).tag(grade)
+                }
+            }
+            .pickerStyle(.menu)
+            .labelsHidden()
+            .tint(Constants.gradeButtonColor)
+            .padding(.trailing)
+        }
+        .background(InputFieldBackground())
+        .layoutPriority(1)
+        .lineLimit(1)
     }
 }
 
