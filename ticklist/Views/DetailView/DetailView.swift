@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DetailView: View {
     //MARK: - Properties
+    @Environment(\.modelContext) private var modelContext
     @Bindable var tick: Tick
     @State var showEditSheet: Bool = false
     
@@ -60,8 +61,19 @@ struct DetailView: View {
             }
         }
         .sheet(isPresented: $showEditSheet) {
-            AddClimbView(tick: tick, onButtonTap: {})
+            AddClimbView(tick: tick, showAdditionalInfo: false, onButtonTap: {saveTick()} )
         }
+    }
+    
+    // MARK: - Helper Method
+    private func saveTick() {
+        do {
+            try modelContext.save()
+        } catch {
+            print("Error saving tick: \(error)")
+            //TODO: fix error handling
+        }
+        showEditSheet.toggle()
     }
 }
 
