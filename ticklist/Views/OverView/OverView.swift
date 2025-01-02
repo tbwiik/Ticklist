@@ -18,7 +18,7 @@ struct OverView: View {
     @State var newTick = Tick()
     
     private enum Constants {
-        static let searchbarPrompt = "Silence"
+        static let searchbarPrompt = "Name of climb"
     }
     
     // MARK: - Computed Properties
