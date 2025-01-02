@@ -49,7 +49,8 @@ struct OverView: View {
         }
         .navigationTitle("Ticklist")
         .sheet(isPresented: $isAddingClimb, onDismiss: resetTick) {
-            AddClimbView(tick: $newTick, onButtonTap: createTick)
+            AddClimbView(tick: newTick,
+                         onButtonTap: createTick)
                 .presentationDragIndicator(.visible)
                 .presentationDetents(.init([.medium, .large]))
                 .presentationContentInteraction(.resizes)
