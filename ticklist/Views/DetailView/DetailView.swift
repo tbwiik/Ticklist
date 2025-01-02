@@ -9,36 +9,34 @@ import SwiftUI
 
 struct DetailView: View {
     //MARK: - Properties
-    @Environment(\.editMode) private var editMode
     @Bindable var tick: Tick
-    @State private var temp = "tmp"
-    @FocusState private var focusOnFirst: Bool
-    
-    //MARK: - Computed Properties
-    private var isEditing: Bool {
-        editMode?.wrappedValue.isEditing ?? false
-    }
+    @State var showEditSheet: Bool = false
     
     //MARK: - View Body
     var body: some View {
         Form {
             Section(header: Text("Climb Details")) {
                 DetailItemHStack(description: "Name") {
-                    TextField("", text: $tick.climbName)
+                    Text(tick.climbName)
                         .padding(.trailing)
-                        .focused($focusOnFirst)
                 }
                 DetailItemHStack(description: "Crag"){
-                    TextField("", text: $tick.cragName)
+                    Text(tick.cragName)
                         .padding(.trailing)
                 }
-                TypeOfClimbDetailItem(typeOfClimb: $tick.typeOfClimb)
+                DetailItemHStack(description: "Type"){
+                    Text(tick.typeOfClimb.description)
+                        .padding(.trailing)
+                }
                 DetailItemHStack(description: "Grade") {
                     GradePicker($tick.grade)
+                        .padding(.trailing)
+                        .disabled(true)
                 }
                 DetailItemHStack(description: "Date"){
                     ClimbDatePicker($tick.timeOfClimb)
                         .labelsHidden()
+                        .disabled(true)
                 }
             }
             Section(header: Text("Additional info")) {
@@ -57,11 +55,12 @@ struct DetailView: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar{
             ToolbarItem(placement: .navigationBarTrailing){
-                EditButton()
+                Button("Edit"){ showEditSheet = true }
+                    .padding(.trailing)
             }
         }
-        .onChange(of: isEditing) { oldValue, newValue in
-            focusOnFirst = newValue
+        .sheet(isPresented: $showEditSheet) {
+            AddClimbView(tick: tick, onButtonTap: {})
         }
     }
 }
