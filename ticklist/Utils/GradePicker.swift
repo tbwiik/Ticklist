@@ -36,7 +36,7 @@ struct GradePicker: View {
             if isEnabled {
                 EnabledGradePicker(grade: $grade)
             } else {
-                Text("\(grade.systemName) \(grade.value)")
+                Text("\(grade.value.systemName) \(grade.value)")
             }
         }
     }
@@ -55,19 +55,13 @@ struct EnabledGradePicker: View {
     
     var body: some View {
         HStack {
-            Picker("", selection: $grade.systemName){
-                ForEach(Grade.allSystems, id: \.self) { system in
-                    Text(system).tag(system)
-                }
-            }
-            .pickerStyle(.menu)
-            .labelsHidden()
-            .tint(Constants.gradeButtonColor)
-            .padding(.leading)
+            Text(grade.value.systemName)
+                .foregroundStyle(Constants.gradeSystemColor)
+                .padding(.leading)
             Rectangle().frame(width: 2).foregroundStyle(Constants.separator)
             Picker("", selection: $grade.value) {
-                ForEach(grade.getAllCasesFromSystem(), id: \.self){ grade in
-                    Text(grade).tag(grade)
+                ForEach(grade.value.systemGrades, id: \.self ){ grade in
+                    Text(grade.string).tag(grade)
                 }
             }
             .pickerStyle(.menu)
@@ -78,10 +72,6 @@ struct EnabledGradePicker: View {
         .background(InputFieldBackground())
         .layoutPriority(1)
         .lineLimit(1)
-        .onChange(of: grade.systemName) { oldValue, newValue in
-            grade.value = grade.defaultValueFromSystem()
-            // FIXME: triggers undefined behaviour because new value is not associated with a tag
-        }
     }
     
 }

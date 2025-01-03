@@ -78,7 +78,7 @@ struct DetailView: View {
 }
 
 #Preview {
-    @Previewable @State var mock = Tick(climbName: "Silence", cragName: "Hanshelleren", timeOfClimb: .now, typeOfClimb: TypeOfClimb.boltedSinglepitch, grade: Grade(systemName: FrenchClimbingGrades.systemName, value: FrenchClimbingGrades.grade9c.rawValue), comment: "Hardest climb ever whenever you sing to me tonight")
+    @Previewable @State var mock = Tick(climbName: "Silence", cragName: "Hanshelleren", timeOfClimb: .now, typeOfClimb: TypeOfClimb.boltedSinglepitch, grade: Grade(FrenchClimbingGrades.grade9c), comment: "Hardest climb ever whenever you sing to me tonight")
     NavigationStack {
         DetailView(tick: mock)
     }

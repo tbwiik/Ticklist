@@ -21,7 +21,7 @@ struct TickCardView: View {
     //MARK: - View Body
     var body: some View {
         HStack{
-            Label(tick.grade.value, systemImage: tickImage)
+            Label(tick.grade.value.string, systemImage: tickImage)
                 .font(.title2) // TODO: update
             VStack (alignment: .leading) {
                 Text(tick.climbName)
@@ -34,6 +34,6 @@ struct TickCardView: View {
 }
 
 #Preview {
-    @Previewable @State var mock = Tick(climbName: "Silence", cragName: "Hanshelleren", timeOfClimb: .now, typeOfClimb: TypeOfClimb.boltedSinglepitch, grade: Grade(systemName: FrenchClimbingGrades.systemName, value: FrenchClimbingGrades.grade9c.rawValue), comment: "Hardest climb ever")
+    @Previewable @State var mock = Tick(climbName: "Silence", cragName: "Hanshelleren", timeOfClimb: .now, typeOfClimb: TypeOfClimb.boltedSinglepitch, grade: Grade(FrenchClimbingGrades.grade9c), comment: "Hardest climb ever")
     TickCardView(mock)
 }

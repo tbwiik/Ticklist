@@ -7,9 +7,16 @@
 
 import Foundation
 
-protocol GradingSystem: Codable, CaseIterable {
-    static var defaultValue: String { get }
+protocol GradingSystem: Codable, Hashable, CaseIterable, Identifiable {
+    static var defaultValue: Self { get }
     static var systemName: String { get }
     
     func toFrench() -> FrenchClimbingGrades?
+    
+    var string: String { get }
+}
+
+// To expose static property
+extension GradingSystem {
+    var systemName: String { Self.systemName }
 }

@@ -9,8 +9,11 @@ import Foundation
 
 /// Enum for UIAA Climbing Grades
 enum UIAAClimbingGrades: String, GradingSystem {
-    static let defaultValue: String = Self.gradeVI.rawValue
+    var id: UUID { UUID() }
+    static let defaultValue = Self.gradeVI
     static let systemName: String = "UIAA"
+    
+    var string: String { self.rawValue }
     
     case gradeI = "I"
     case gradeII = "II"
