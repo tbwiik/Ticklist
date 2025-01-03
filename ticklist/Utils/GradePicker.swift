@@ -36,7 +36,7 @@ struct GradePicker: View {
             if isEnabled {
                 EnabledGradePicker(grade: $grade)
             } else {
-                Text("\(grade.systemName) \(grade.string)")
+                Text("\(grade.systemName) \(grade.value)")
             }
         }
     }
@@ -60,8 +60,8 @@ struct EnabledGradePicker: View {
                 .padding(.leading)
             Rectangle().frame(width: 2).foregroundStyle(Constants.separator)
             Picker("", selection: $grade.value) {
-                ForEach(FrenchClimbingGrades.allCases){ grade in
-                    Text(grade.rawValue).tag(grade)
+                ForEach(grade.getAllCasesFromSystem(), id: \.self){ grade in
+                    Text(grade).tag(grade)
                 }
             }
             .pickerStyle(.menu)
@@ -73,11 +73,12 @@ struct EnabledGradePicker: View {
         .layoutPriority(1)
         .lineLimit(1)
     }
+    
 }
 
 #Preview {
     
-    @Previewable @State var grade: Grade = .init(FrenchClimbingGrades.grade6aPlus)
+    @Previewable @State var grade: Grade = .init()
     
     List {
         NavigationStack {

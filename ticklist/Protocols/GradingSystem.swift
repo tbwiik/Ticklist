@@ -7,9 +7,9 @@
 
 import Foundation
 
-protocol GradingSystem: Identifiable, Codable, CaseIterable {
-    var id: Self { get }
-    static var defaultValue: Self { get }
+protocol GradingSystem: Codable, CaseIterable {
+    static var defaultValue: String { get }
+    static var systemName: String { get }
     
     func toFrench() -> FrenchClimbingGrades?
 }

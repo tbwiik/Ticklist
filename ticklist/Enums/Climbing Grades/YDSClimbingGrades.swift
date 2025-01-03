@@ -9,8 +9,8 @@ import Foundation
 
 /// Enum for YDS (American) Climbing Grades
 enum YDSClimbingGrades: String, GradingSystem {
-    var id: Self { self }
-    static var defaultValue: Self { .grade5_11c }
+    static let defaultValue: String = Self.grade5_11c.rawValue
+    static let systemName: String = "YDS"
     
     case grade5_0 = "5.0"
     case grade5_1 = "5.1"
