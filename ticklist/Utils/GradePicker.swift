@@ -55,9 +55,15 @@ struct EnabledGradePicker: View {
     
     var body: some View {
         HStack {
-            Text(grade.systemName)
-                .foregroundStyle(Constants.gradeSystemColor)
-                .padding(.leading)
+            Picker("", selection: $grade.systemName){
+                ForEach(Grade.allSystems, id: \.self) { system in
+                    Text(system).tag(system)
+                }
+            }
+            .pickerStyle(.menu)
+            .labelsHidden()
+            .tint(Constants.gradeButtonColor)
+            .padding(.leading)
             Rectangle().frame(width: 2).foregroundStyle(Constants.separator)
             Picker("", selection: $grade.value) {
                 ForEach(grade.getAllCasesFromSystem(), id: \.self){ grade in
@@ -72,6 +78,10 @@ struct EnabledGradePicker: View {
         .background(InputFieldBackground())
         .layoutPriority(1)
         .lineLimit(1)
+        .onChange(of: grade.systemName) { oldValue, newValue in
+            grade.value = grade.defaultValueFromSystem()
+            // FIXME: triggers undefined behaviour because new value is not associated with a tag
+        }
     }
     
 }
